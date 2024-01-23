@@ -1,14 +1,18 @@
-import { scout, App } from '@eclipse-scout/core';
+import {scout, App, ObjectFactory} from '@eclipse-scout/core';
 import { Desktop } from './desktop/Desktop'
-import { HelloForm } from './greeting/HelloForm'
+
+import * as self from './helloworld';
+
+export * from  './desktop/Desktop'
+export * from  './greeting/HelloForm'
 
 scout.addObjectFactories({
-  'Desktop': () => new Desktop()
+  'Desktop': function() {
+    return new Desktop();
+  }
 });
 
-window.helloworld = Object.assign(window.helloworld || {}, {
-  HelloForm
-});
+ObjectFactory.get().registerNamespace('helloworld', self);
 
 new App().init({
   bootstrap: {

@@ -1,14 +1,22 @@
 {
+  "engines": {
+    "node": ">=18.12.1",
+    "npm": ">=9.1.1",
+    "pnpm": ">=7.16.0"
+  },
+  "main": "./src/helloworld.ts",
   "scripts": {
+    "pnpm-install": "pnpm install --ignore-scripts",
     "build:dev": "scout-scripts build:dev",
     "build:dev:watch": "scout-scripts build:dev:watch",
     "serve": "live-server --mount=/:dist"
   },
   "devDependencies": {
-    "@eclipse-scout/cli": "^22.0.2",
+    "@eclipse-scout/cli": "^23.2.15",
+    "@eclipse-scout/tsconfig": "23.2.15",
     "live-server": "^1.2.1"
   },
   "dependencies": {
-    "@eclipse-scout/core": "^22.0.2"
+    "@eclipse-scout/core": "^23.2.15"
   }
 }

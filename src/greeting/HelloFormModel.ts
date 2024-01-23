@@ -1,21 +1,23 @@
-import {Form, GroupBox} from '@eclipse-scout/core';
+import {Button, Form, FormModel, GroupBox, StringField} from '@eclipse-scout/core';
 
-export default () => ({
-  objectType: 'Form',
+export default ():FormModel => ({
+  id: 'HelloForm',
+  objectType: Form,
   displayHint: Form.DisplayHint.VIEW,
   modal: false,
   rootGroupBox: {
-    objectType: 'GroupBox',
+    id: 'MainBox',
+    objectType: GroupBox,
     borderDecoration: GroupBox.BorderDecoration.EMPTY,
     fields: [
       {
         id: 'NameField',
-        objectType: 'StringField',
+        objectType: StringField,
         label: 'Name'
       },
       {
         id: 'GreetButton',
-        objectType: 'Button',
+        objectType: Button,
         label: 'Say Hello',
         keyStroke: 'enter',
         processButton: false
@@ -23,3 +25,10 @@ export default () => ({
     ]
   }
 })
+
+export type HelloFormWidgetMap = {
+  'HelloForm': Form;
+  'MainBox': GroupBox;
+  'NameField': StringField;
+  'GreetButton': Button;
+};

@@ -1,13 +1,14 @@
-import { Desktop as ScoutDesktop, models } from '@eclipse-scout/core';
-import DesktopModel from './DesktopModel';
+import {Desktop as ScoutDesktop, models, DesktopModel as ScoutDesktopModel} from '@eclipse-scout/core';
+import DesktopModel, {DesktopWidgetMap} from './DesktopModel';
 
 export class Desktop extends ScoutDesktop {
+  declare widgetMap: DesktopWidgetMap;
 
   constructor() {
     super();
   }
 
-  _jsonModel() {
+  protected override _jsonModel(): ScoutDesktopModel {
     return models.get(DesktopModel);
   }
 }
